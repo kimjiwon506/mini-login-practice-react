@@ -28,10 +28,9 @@ const FormInput = ({ id, inputProps, title }) => {
                         setFormData({ ...formData, [id]: e.target.value })
                     }}
                 />
-                <div
-                    id="id-msg"
-                    className="mt-1 mb-3 text-xs text-red-500"
-                ></div>
+                <div id="id-msg" className="mt-1 mb-3 text-xs text-red-500">
+                    테스트
+                </div>
             </div>
         </>
     )
