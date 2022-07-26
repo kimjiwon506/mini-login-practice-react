@@ -1,7 +1,14 @@
 import React, { useState } from 'react'
 import FormInput from './FormInput'
 
+const initialErrorData = {
+    id: '',
+    pw: '',
+    pwCheck: '',
+}
+
 const Form = () => {
+    const [errorData, setErrorData] = useState(initialErrorData)
     return (
         <>
             <form
@@ -17,6 +24,8 @@ const Form = () => {
                         type: 'text',
                         placeholder: '아이디를 입력해주세요',
                     }}
+                    errorData={errorData}
+                    setErrorData={setErrorData}
                 />
                 <FormInput
                     title={'비밀번호'}
@@ -25,6 +34,8 @@ const Form = () => {
                         type: 'password',
                         placeholder: '비밀번호를 입력해주세요.',
                     }}
+                    errorData={errorData}
+                    setErrorData={setErrorData}
                 />
                 <FormInput
                     title={'비밀번호 확인'}
@@ -33,6 +44,8 @@ const Form = () => {
                         type: 'password',
                         placeholder: '비밀번호를 입력해주세요.',
                     }}
+                    errorData={errorData}
+                    setErrorData={setErrorData}
                 />
                 <div className="flex items-center justify-center">
                     <input
