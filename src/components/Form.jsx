@@ -7,14 +7,26 @@ const initialErrorData = {
     pwCheck: '',
 }
 
-const Form = () => {
+const Form = ({ modalRef }) => {
     const [errorData, setErrorData] = useState(initialErrorData)
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        //modalRef.current.showModal()
+        // 폼의 id,pw,pwCheck이 유효한지 확인하려면
+        // const isValid = Object.values(errorData)
+        // console.log(isValid)
+        const isValid = Object.values(errorData).every(
+            (value) => value === true
+        )
+        isValid && modalRef.current.showModal()
+    }
     return (
         <>
             <form
                 id="form"
                 className="w-full max-w-md m-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
                 autoComplete="off"
+                onSubmit={handleSubmit}
             >
                 <FormInput
                     title={'아이디'}
